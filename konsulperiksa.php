@@ -27,7 +27,7 @@ $input = $data;
 	  }
 	  //menampilkan outputnya
 echo $text;
-$kosongtabel=mysqli_query("DELETE FROM tmp_gejala");
+$kosongtabel=mysqli_query($koneksi,"DELETE FROM tmp_gejala");
 $text_line=$data;
 $text_line =$data; //"Poll number 1, 1500, 250, 150, 100, 1000";
 $text_line = explode(",",$text_line);
@@ -37,7 +37,7 @@ for ($start=0; $start < count($text_line); $start++) {
 	// untuk nilai bobot	
 	//$bobot=substr($databobot,$posisi,1); echo $bobot. "<br>";
 	$sql="INSERT INTO tmp_gejala (kd_gejala) VALUES ('$baris')";
-	$query=mysqli_query($koneksi,$sql) or die(mysqli_error());
+	$query=mysqli_query($koneksi,$sql) or die(mysqli_error($koneksi));
 	$posisi++;
 print $text_line[$start] . "<BR>";
 }
